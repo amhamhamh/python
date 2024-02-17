@@ -57,3 +57,89 @@
 # print(a @ b, sep=' , ')
 
 
+#print(False and 'Python')
+
+
+# a = list(range(10))
+# 
+# print(a)
+# 
+# 
+# b = list(range(5, 12))
+# 
+# print(b)
+
+# c = list(range(-10, 10, 3))
+
+# print(c)
+
+
+# d = list(range(10, -4 ,-2))
+
+# print(d)
+
+
+## () 형태를 tuple이라고 함. 읽기 전용 리스트로 변경, 추가, 삭제 등이 불가함.
+
+# a = tuple(range(0,10))
+
+# print(a)
+
+
+
+## 아래와 같이 자료가 없는 형태로도 만들기도 함. 요소를 실수로 변경하는 상황을 방지하기 위해서
+# b = 1, 2, 4, 5, 7, 8, 10
+
+# print(b)
+
+# print((40, ))
+
+# print(30,)
+
+    
+# print(list('Hello World'))
+
+# print(tuple('Hello World'))
+
+
+# a, b, c = [1, 2, 3]
+
+# print(a, b, c)
+
+
+# a = [1, 2, 3]
+# print(a)
+# a = tuple(a)
+# print(a)
+
+
+# x, y, z= a
+
+# print(x, y, z)
+
+# b = (4, 5, 6)
+# print(b)
+# b = list(b)
+# print(b)
+
+
+# a = [1, 2, 3] # 리스트 패킹
+# b = (1, 2, 3) # 튜플 패킹
+# c = 1, 2, 3 # 튜플 패킹
+
+
+# a = input(int()).split(",")
+
+# print(type(a[0]))
+# print(len(a))
+
+## 문맥 이해
+# [expression for item in iterable if condition]
+
+
+
+text_input  = input('숫자를 넣어주세요. ')
+
+int_array = [int(value) for value in text_input.split()]
+
+print('int_array : ',int_array, type(int_array[0]))
