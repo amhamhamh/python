@@ -57,3 +57,51 @@
 # print(a @ b, sep=' , ')
 
 
+#print(False and 'Python')
+
+
+# a = list(range(10))
+# 
+# print(a)
+# 
+# 
+# b = list(range(5, 12))
+# 
+# print(b)
+
+# c = list(range(-10, 10, 3))
+
+# print(c)
+
+
+# d = list(range(10, -4 ,-2))
+
+# print(d)
+
+
+## () 형태를 tuple이라고 함. 읽기 전용 리스트로 변경, 추가, 삭제 등이 불가함.
+
+a = tuple(range(0,10))
+
+print(a)
+
+
+
+## 아래와 같이 자료가 없는 형태로도 만들기도 함. 요소를 실수로 변경하는 상황을 방지하기 위해서
+b = 1, 2, 4, 5, 7, 8, 10
+
+print(b)
+
+print((40, ))
+
+print(30,)
+
+    
+print(list('Hello World'))
+
+print(tuple('Hello World'))
+
+
+a, b, c = [1, 2, 3]
+
+print(a, b, c)

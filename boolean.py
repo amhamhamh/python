@@ -18,6 +18,3 @@ print(1<2)
 print(2<1)
 #Membership operator
 print('world' in ' hello world')
-
-import os.path
-print(os.path.exists('boolean.py'))
