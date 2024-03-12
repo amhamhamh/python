@@ -139,6 +139,7 @@
 
 
 # text_input  = input('숫자를 넣어주세요. ')
+<<<<<<< HEAD
 
 # int_array = [int(value) for value in text_input.split()]
 
@@ -468,3 +469,86 @@ import random
 a = [i * j for j in range(2, 10) for i in range(1, 10)]
 
 
+=======
+
+# int_array = [int(value) for value in text_input.split()]
+
+# print('int_array : ',int_array, type(int_array[0]))
+
+
+# a = [1.2, 2.5, 3.7, 4.6]
+
+# for idx, val in enumerate(a):
+#     print(f'{int(val) , int(a[idx])}')
+
+# print(list(map(int, a)))
+
+# a = (38, 21, 53, 62, 19, 53)
+# k = a.index(62)
+# print(k)
+
+# a = (38, 21, 53, 62, 19)
+
+# k = tuple(i for i in range(10) if i % 2 == 0)
+# print(k)
+
+# a = [38, 21, 53, 62, 19]
+# a.append(40)
+# print(a)
+
+
+# a = [[10, 20], [30, 40], [50, 60]]
+
+# print(a[0][0])
+
+# print(a[1][0])
+
+# a = []
+# a.append([])
+# a[0].append(10)
+# a[0].append(13)
+# a[0].append(15)
+# a.append([])
+# a[1].append(19)
+# a[1].append(20)
+# a[1].append(21)
+# print(a)
+
+
+a = [[10, 20], [30, 40], [50, 60]]
+# for x, y in a:
+#     print(x, y)
+    
+# 반복 배열    
+# for i in a:
+#     for j in i:
+#         print(j, end=' ')
+        
+# for i in range(len(a)):
+#     for j in range(len(a[i])):
+#         print(f'a{[i]}{[j]} : {a[i][j]}')
+
+# for i in range(len(a)):
+#     for j in range(len(a[i])):
+#         print(f'a{[i]}{[j]} {a[i][j]}')
+
+# i = 0
+
+# while i < len(a):
+#     j = 0  
+#     while j < len(a[i]):
+#         print(f'a{[i]}{[j]} {a[i][j]}')        
+#         j += 1
+#     i += 1    
+#     print()
+    
+
+
+a = []
+
+for i in range(10):
+    a.append(0)
+    
+    
+print(a)
+>>>>>>> origin/master
