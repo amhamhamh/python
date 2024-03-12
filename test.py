@@ -139,7 +139,7 @@
 
 
 # text_input  = input('숫자를 넣어주세요. ')
-<<<<<<< HEAD
+
 
 # int_array = [int(value) for value in text_input.split()]
 
@@ -304,7 +304,7 @@ x = 5
 #     print(f'숫자 : {i}')
 #     i += 1
 
-import random
+# import random
 
 # i = 0
 # while i != 3:
@@ -469,7 +469,7 @@ import random
 a = [i * j for j in range(2, 10) for i in range(1, 10)]
 
 
-=======
+
 
 # int_array = [int(value) for value in text_input.split()]
 
@@ -547,8 +547,7 @@ a = [[10, 20], [30, 40], [50, 60]]
 a = []
 
 for i in range(10):
-    a.append(0)
-    
-    
-print(a)
->>>>>>> origin/master
+    a.append(0)        
+
+# print(a)
+
