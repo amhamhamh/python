@@ -184,5 +184,39 @@
 # print(a)
 
 
+a = [[10, 20], [30, 40], [50, 60]]
+# for x, y in a:
+#     print(x, y)
+    
+# 반복 배열    
+# for i in a:
+#     for j in i:
+#         print(j, end=' ')
+        
+# for i in range(len(a)):
+#     for j in range(len(a[i])):
+#         print(f'a{[i]}{[j]} : {a[i][j]}')
+
+# for i in range(len(a)):
+#     for j in range(len(a[i])):
+#         print(f'a{[i]}{[j]} {a[i][j]}')
+
+# i = 0
+
+# while i < len(a):
+#     j = 0  
+#     while j < len(a[i]):
+#         print(f'a{[i]}{[j]} {a[i][j]}')        
+#         j += 1
+#     i += 1    
+#     print()
+    
 
 
+a = []
+
+for i in range(10):
+    a.append(0)
+    
+    
+print(a)
