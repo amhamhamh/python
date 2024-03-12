@@ -138,8 +138,51 @@
 
 
 
-text_input  = input('숫자를 넣어주세요. ')
+# text_input  = input('숫자를 넣어주세요. ')
 
-int_array = [int(value) for value in text_input.split()]
+# int_array = [int(value) for value in text_input.split()]
 
-print('int_array : ',int_array, type(int_array[0]))
+# print('int_array : ',int_array, type(int_array[0]))
+
+
+# a = [1.2, 2.5, 3.7, 4.6]
+
+# for idx, val in enumerate(a):
+#     print(f'{int(val) , int(a[idx])}')
+
+# print(list(map(int, a)))
+
+# a = (38, 21, 53, 62, 19, 53)
+# k = a.index(62)
+# print(k)
+
+# a = (38, 21, 53, 62, 19)
+
+# k = tuple(i for i in range(10) if i % 2 == 0)
+# print(k)
+
+# a = [38, 21, 53, 62, 19]
+# a.append(40)
+# print(a)
+
+
+# a = [[10, 20], [30, 40], [50, 60]]
+
+# print(a[0][0])
+
+# print(a[1][0])
+
+# a = []
+# a.append([])
+# a[0].append(10)
+# a[0].append(13)
+# a[0].append(15)
+# a.append([])
+# a[1].append(19)
+# a[1].append(20)
+# a[1].append(21)
+# print(a)
+
+
+
+
