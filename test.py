@@ -139,6 +139,7 @@
 
 
 # text_input  = input('숫자를 넣어주세요. ')
+# text_input  = input('숫자를 넣어주세요. ')
 
 # int_array = [int(value) for value in text_input.split()]
 
