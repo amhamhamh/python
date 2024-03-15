@@ -404,3 +404,101 @@ a = [[10, 20], [30, 40], [50, 60]]
 # y = dict.fromkeys(keys)
 # print(x)
 
+
+# from collections import defaultdict
+# y = defaultdict(int) 
+# keys = ['a', 'b', 'c', 'd']
+# y = dict.fromkeys(keys, 100) # dict
+# print(y)
+
+# x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+# for i in x:
+#     print(i, end=' ')
+    
+# x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+# for key, value in x.items(): # 해당 아이템의 value의 값을 가져오는 것. 
+#     print(key, value)
+
+
+# x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+# for key in x.keys():
+#     print(key, end=' ')
+
+# print()
+# for val in x.values():
+#     print(val, end=' ')
+
+# keys = ['a', 'b', 'c', 'd']
+# x = {key: value for key, value in dict.fromkeys(keys).items()}
+
+# x = {key:value for key, value in dict.fromkeys(keys).items()}
+# x = {key: 0 for key in dict.fromkeys(keys).keys()}
+
+# 삭제를 하는 것이 아니라, 제외하는 것
+# x = {value: key for key, value in {'a': 10, 'b': 20, 'c': 30, 'd': 40}.items()}
+
+
+# 어떤 value 값을 삭제하는 것은 직접 키 값을 삭제하는 것이 아니라, 삭제할 key&value 값을 삭제하는 것임. 
+# x = {'a': 10, 'b': 20, 'c': 30, 'd': 40}
+# x = {key: value for key, value in x.items() if value != 20}
+# x = {key:value for key, value in x.items() if value != 20}
+# print(x)
+
+# maria = {'korean': 94, 'english': 91, 'mathematics': 89, 'science': 83}
+
+# avg =  sum(maria.values()) / len(maria)
+# print(avg)
+
+## set은 집합. 
+# a = set('apple')
+
+# print(a)
+
+# k = set('keep')
+# print(k)
+
+# a = {1, 2, 3, 4, 5}
+# b = {3, 4, 5, 6, 7}
+# b = {6, 7, 5, 9, 10}
+
+## 합집합
+# c = a | b
+# c = set.union(a, b)
+# a.update({5})
+
+# 교집합
+# c = a & b 
+# c = set.intersection(a, b)
+
+# 차집합
+# c = a - b
+# c = set.difference(a, b)
+# c = set.difference(b, a)
+
+# 대칭차집합
+# c = a ^ b
+# c = set.symmetric_difference(a, b)
+
+# a = {1, 2, 3, 4}
+# a |= {5}
+
+# 교집합
+# a = {1, 2, 3, 4}
+# a &={1, 2, 3, 4, 5}
+
+
+# print(a)
+
+
+# a = {1, 2, 3, 4}
+# a ^= {3, 4, 5, 6}
+
+
+# a = {1, 2, 3, 4}
+# a &= {0, 1, 2, 3, 4}
+
+# 교집합 업데이트 
+# a = {1, 2, 3, 4}
+# a.intersection_update({0, 1, 2, 3, 4})
+
+# print(a)
