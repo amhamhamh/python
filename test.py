@@ -185,7 +185,7 @@
 # print(a)
 
 
-a = [[10, 20], [30, 40], [50, 60]]
+# a = [[10, 20], [30, 40], [50, 60]]
 # for x, y in a:
 #     print(x, y)
     
@@ -502,3 +502,153 @@ a = [[10, 20], [30, 40], [50, 60]]
 # a.intersection_update({0, 1, 2, 3, 4})
 
 # print(a)
+
+# 부분 집합
+# a = {1, 2, 3, 4}
+# 
+# print(a <= {1, 2, 3, 4})
+# 
+# print(a.issubset({1, 2, 3, 4}))
+
+# 진부분 집합(상위 집합인지)
+# a = {1, 2, 3, 4}
+# print(a < {1, 2, 3, 4, 5}) 
+
+# 진상위집합인지
+# a = {1, 2, 3, 4}
+# print(a > {1, 2, 3}) 
+
+# 세트가 같은지 다른지 확인하기
+# a = {1, 2, 3, 4}
+# print(a == {1, 2, 3, 4})
+
+# a = {4, 3, 2, 1}
+# print(a == {1, 2, 3, 4})
+
+# a = {1, 2, 3, 4}
+# print(a != {1, 2, 3})
+
+# a = {1, 2, 3, 4}
+# print(a.isdisjoint({5, 6, 7, 8})) # 겹치는 요소가 있는지 없는지
+# print(a.isdisjoint({3, 4, 5, 6}))
+
+# a = {1, 2, 3, 4}
+# a.add(5)
+# print(a)
+
+# 특정요소 삭제
+# a.remove(3)
+# print(a)
+
+# 모든 요소 삭제
+# a.clear()
+# print(a)
+
+# a.pop()
+# print(a)
+
+# a.pop()
+# print(a)
+
+# 표현식으로 중복된 요소를 빼고 출력
+# a = {i for i in 'apple'}
+# print(a)
+
+# 반복되지 않은 것에 대해서 표현
+# a = {i for i in 'pineapple' if i in 'apl'}
+# print(a)
+
+
+# a = {i for i in range(0, 101) if i % 3 == 0}
+# b = {i for i in range(0, 101) if i % 5 == 0}
+# print(a & b)
+
+
+#  a와 b의 공약수 구하기
+# c, k = map(int, input().split(' '))
+# a = {i for i in range(1, c+1) if c % i == 0} 
+# b = {i for i in range(1, k+1) if k % i == 0} 
+
+# print(a & b)
+
+# file = open('hello.txt', 'w') # hello.txt 파일을 쓰기 모드로 열기, 파일 객체로 변환
+# file.write('Hello world')
+# file.close()
+
+# file = open('hello.txt', 'w') # hello.txt 파일을 쓰기 모드로 열기, 파일 객체로 변환
+# file.write('Hello world') # 파일을 문자열에 저장
+# file.close()
+
+# file = open('hello.txt', 'r')  #파일을 읽기모드로 열기
+# s = file.read() # 안에 파일 내용 읽기
+# print(s) # 값 출력
+# file.close()
+
+# lines = ['안녕하세요.\n', '파이썬\n', '코딩 도장입니다.\n']
+
+## 파일 읽기 모드 및 쓰기 모드
+# with open('hello.txt', 'r') as file:
+    # s = file.read()
+    # print(s)
+    # for i in range(3): # 반복문을 돌면서 입력
+    #     file.write(f'Hello world{i}\n') 
+    # file.writelines(lines)
+    # k = file.readlines()
+    # print(k)
+
+# 줄 읽기
+# with open('hello.txt', 'r') as file:
+#     line = None
+#     while line != '': # 파일을 읽을 때 특정 조건 없이 계속 읽을 수 있음.
+#         line = file.readline() # 파일의 내용을 한 줄씩 리스트 형태로 가져옴.
+#         print(line.strip('\n'))    
+    # lines = file.readlines()
+    # print(lines)
+
+# 파일 읽기
+# with open('hello.txt', 'r') as file:
+#     for line in file:
+#         print(line.strip('\n'))
+
+
+# 피클링 - 파이썬 객체를 파일에 저장하는 과정
+# 언피클링 - 파일에서 객체를 읽어오는 과정
+# import pickle
+
+# name = 'james'
+# age = 17
+# address = '서울시 서초구 반포동'
+# scores = {'korean': 90, 'english': 95, 'mathematics': 85, 'science': 82}
+# sex = 'male'
+
+# with open('jame.p', 'ab') as file: # jame.p 파일을 바이너리 쓰기 모드로 변환
+# with open('james.p', 'xb') as file: # jame.p 파일을 ㅈ
+#     pickle.dump(sex, file)
+#     pickle.dump(name, file)
+#     pickle.dump(age, file)
+#     pickle.dump(address, file)
+#     pickle.dump(scores, file)
+
+# 'a'는 추가 모드
+# 'X'는 베타적 생성 - 파일이 이미 있으면 에러발생, 없으면 새로운 파일을 만듬
+# 
+# with open('james.p', 'rb') as file: # jame.p 파일을 바이너리 읽기 모드로 변환
+#     name = pickle.load(file)
+#     age = pickle.load(file)
+#     address = pickle.load(file)
+#     scores = pickle.load(file)
+#     sex = pickle.load(file)
+
+# print(name)
+# print(age)
+# print(address)
+# print(scores)
+# print(sex)
+
+with open('words.txt', 'r') as file:
+    count = 0
+    words = file.readlines()
+    for i in words:
+        if len(i.strip('\n')) < 11:
+            count += 1
+    print(count)
