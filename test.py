@@ -645,10 +645,103 @@
 # print(scores)
 # print(sex)
 
-with open('words.txt', 'r') as file:
-    count = 0
-    words = file.readlines()
-    for i in words:
-        if len(i.strip('\n')) < 11:
-            count += 1
-    print(count)
+# with open('words.txt', 'r') as file:
+#     count = 0
+#     words = file.readlines()
+#     for i in words:
+#         if len(i.strip('\n')) < 11:
+#             count += 1
+#     print(count)
+
+
+# word = input('단어를 입력하세요: ')
+# word1 = word # 단순히 문자열을 복사
+
+
+
+# is_palindrome = True                 # 회문 판별값을 저장할 변수, 초깃값은 True
+# for i in range(len(word) // 2):      # 0부터 문자열 길이의 절반만큼 반복
+#     print('문자열 반복 i :', word[i])
+#     if word[i] != word[-1 - i]:      # 왼쪽 문자와 오른쪽 문자를 비교하여 문자가 다르면
+#         print('문자열 반복 i :', word[i], '/',  word[-1 - i])
+#         is_palindrome = False        # 회문이 아님
+#         break
+
+# print(is_palindrome)                 # 회문 판별값 출력
+
+# 문자열 정배열과 문자열을 역배열로 만들어서 비교
+# print(word == word[::-1])
+
+# 해당 문자열을 정배열과 역배열로 해서 비교
+
+# print(list(word) == list(reversed(word1)))
+
+# print(list(word))
+
+# print(word == ''.join(reversed(word)))
+
+# N-gram은 문자열에서 N개의 연속된 요소를 추출하는 방법
+
+# word = 'Hello'
+# test = 'This is python script'
+# word = test.split()
+
+# for i in range(len(word)-1):
+#     print(word[i], word[i + 1])
+
+
+# text = 'hello'
+# two_gram = zip(text, text[1:])
+
+# keep1 = ['a', 'b', 'c', 'd']
+# keep2 = [1, 2, 3, 4]
+# keep3 = zip(keep1, keep2)  # 반복가능한 요소들을 묶어서, 순회하면서 tuple 형태로, dict() 함수로 섞으면 dict()로 만들어줌
+# print(dict(keep3))
+
+# text = 'this is python project'
+# word = text.split()
+# print(list(zip(word, word[1:])))
+
+# text =  'hello'
+# k = [text[i:] for i in range(3)]
+# print(list(zip(*k))) 
+# print(*text)
+
+# '*'는 애스터리스크 - 인수를 순서대로 출력하는 요소
+# 1. 가변인수로 정해지지 않은 숫자의 인수를 넣을 수 있음
+# 2. 고정 인수와 가변 인수를 넣음
+
+## 가변 인수 - 정해지지 않은 숫자의 인수를 넣을 수 있음
+# def print_number(*args):
+#     for i in args:
+#         print(i)
+
+# print(print_number(10, 20, 30, 40))
+
+
+# a와 가변인수 args는 다르게 와야 함. 
+# def print_number(a, *args): 
+#     print(a)
+#     print(*args)
+
+# print(print_number(1, [10, 20, 30]))
+# print(print_number(1, 10, 20)) # a - 1, args - 10, 20
+# print(print_number(*[10, 20, 30])) 
+
+
+# text = 'hello'
+
+# print(list(zip(*[text[i: ] for i in range(3)])))
+
+n = int(input())
+text = input()
+word = text.split() # 빈 칸으로 구분
+
+if len(word) < n:
+    print('wrong')
+else:
+    n_gram = zip(*[word[i:] for i in range(n)])
+    for i in n_gram:
+        print(i)
+
+
