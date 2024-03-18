@@ -843,5 +843,6 @@
 # a = [8, 3, 2, 10, 15, 7, 1, 9, 0, 11]
 # print(list(filter(lambda x: 5 < x <10, a)))
 
+# -1은 흔히 찾는 인덱스 값이 없을 때 쓰는 관례적인 것
 files = ['font', '1.png', '10.jpg', '11.gif', '2.jpg', '3.png', 'table.xslx', 'spec.docx']
 print(list(filter(lambda x: x.find('.jpg') != -1 or x.find('.png') != -1, files)))
