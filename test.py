@@ -733,15 +733,115 @@
 
 # print(list(zip(*[text[i: ] for i in range(3)])))
 
-n = int(input())
-text = input()
-word = text.split() # 빈 칸으로 구분
+# n = int(input())
+# text = input()
+# word = text.split() # 빈 칸으로 구분
 
-if len(word) < n:
-    print('wrong')
-else:
-    n_gram = zip(*[word[i:] for i in range(n)])
-    for i in n_gram:
-        print(i)
+# if len(word) < n:
+#     print('wrong')
+# else:
+#     n_gram = zip(*[word[i:] for i in range(n)])
+#     for i in n_gram:
+#         print(i)
 
 
+
+# def hello(count):
+#     if count == 0:
+#         return
+    
+#     print('Hello, world!', count)
+    
+#     count -= 1
+#     hello(count)
+    
+# hello(5)
+
+# def factorial(n):
+#     if n == 1:
+#         return 1
+#     return n * factorial(n - 1)
+
+# def is_palindrome(word):
+#     # if list(word) == list(reversed(word)):
+#     #     return True
+#     # else:
+#     #     return False
+#     if 
+
+# print(is_palindrome('hello'))
+# print(is_palindrome('level'))
+
+
+## 피보나치 수열 ( 바로 뒤에 있는 수와 두번째 자리 수와 더하는 것)
+# def fibonacci(n):
+#     if n <= 0:
+#         return []
+#     elif n == 1:
+#         return [0]
+#     elif n == 2:
+#         return [0, 1]
+
+#     sequence = [0, 1]
+#     for i in range(2, n):
+#         next_value = sequence[i-1] + sequence[i-2]
+#         # print(f'next_value: {next_value} / i : {i} / sequence[i-1] : {sequence[i-1]} / sequence[i-2] : {sequence[i-2]}')
+#         sequence.append(next_value)
+#         # print('sequence : ', sequence)
+#     return sequence
+
+# # 예를 들어, 피보나치 수열의 처음 10개 요소를 출력하려면
+# print(fibonacci(1))
+
+## 팩토리얼은 재귀함수
+# def factorial(n):
+#     if n == 1:
+#         return 1
+#     return n * factorial(n-1)
+
+# 함수를 1줄로 표현함. 
+# def hello(): print('Hello, world!')
+
+# hello()
+
+# 람다 표현식- 익명함수 - 즉시 실행함수
+# lambda 매개변수들: 식
+# plus_ten = lambda x:x+10
+
+# print(plus_ten(10))
+
+# print((lambda x: x + 10)(1)) # 즉시 실행 함수
+
+# y = 10
+# print((lambda x: x + y)(1))
+
+# def plus_ten(x):
+#     return x + 10
+
+# print(list(map(plus_ten, [10, 11, 12])))
+
+## 람다표현식은 무조건 반환하는 값이 있어야 한다. 
+# print(list(map(lambda x: x + 10, [10, 11, 12])))
+
+## 람다 표현식은 무조건 반환하는 값이 있어야 한다. 
+# print((lambda :1)())
+# x = 10
+# print((lambda :x)())
+
+# a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# print(list(map(lambda x: str(x) if x % 3 == 0 else x, a))) # 람다 표현식 안에서 if와 eles는 무조건 써야 한다. 
+
+# lambda 매개변수들: 식1 if 조건식1 else 식2 if 조건식2 else 식3
+
+
+# a = [1, 2, 3, 4, 5]
+# b = [2, 4, 6, 8, 10]
+
+# print(list(map(lambda x, y: x* y , a, b)))
+
+# 익명함수 lambda 매개변수 : 식 - (반환하는 형태는 꼭 있어야 한다. )
+# a = [8, 3, 2, 10, 15, 7, 1, 9, 0, 11]
+# print(list(filter(lambda x: 5 < x <10, a)))
+
+files = ['font', '1.png', '10.jpg', '11.gif', '2.jpg', '3.png', 'table.xslx', 'spec.docx']
+print(list(filter(lambda x: x.find('.jpg') != -1 or x.find('.png') != -1, files)))
