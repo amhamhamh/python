@@ -844,5 +844,115 @@
 # print(list(filter(lambda x: 5 < x <10, a)))
 
 # -1은 흔히 찾는 인덱스 값이 없을 때 쓰는 관례적인 것
-files = ['font', '1.png', '10.jpg', '11.gif', '2.jpg', '3.png', 'table.xslx', 'spec.docx']
-print(list(filter(lambda x: x.find('.jpg') != -1 or x.find('.png') != -1, files)))
+# files = ['font', '1.png', '10.jpg', '11.gif', '2.jpg', '3.png', 'table.xslx', 'spec.docx']
+# print(list(filter(lambda x: x.find('.jpg') != -1 or x.find('.png') != -1, files)))
+
+# x = 10
+
+# def foo():
+#     global x  # 해당 변수를 전역변수로 씀
+#     x = 20
+#     print(x)
+
+# foo()
+# print(x)
+
+# def foo():
+#     global x
+#     x = 20
+#     print(x)
+
+# foo()
+# print(x)
+
+# x = 10
+# print(locals()) # 현재 네임스페이스(지역변수)안에서 딕셔너리 형태로 출력할 수 있음
+
+# def foo():
+#     x = 10
+#     print(locals()) # 출력된 네임스페이스, x : 10 - 변수 x와 값 10이 저장되어 있음
+# foo()
+
+# def foo():
+#     x = 10
+#     print(locals())
+
+# foo()
+
+# def print_hello():
+#     hello = 'Hello, world!'
+#     def print_message(): # 바깥쪽 함수의 지역 변수를 사용
+#         print(hello)    
+#     print_message()
+
+# print_hello()
+
+# def A():
+#     x = 10
+#     def B():
+#         x = 20
+#     B()
+#     print(x)
+
+# A()
+
+# def A():
+#     x = 10        # A의 지역 변수 x
+#     def B():
+#         nonlocal x    # 현재 함수의 바깥쪽에 있는 지역 변수 사용 - 즉, 주소(변수)를 A함수의 x를 다르게 참조하겠다라는 의미
+#         x = 20        # A의 지역 변수 x에 20 할당 -  
+#     B()
+#     print(x)      # A의 지역 변수 x 출력
+ 
+# A()
+
+# lambda로 클로저 만들기
+# def calc():
+#     a = 3
+#     b = 5
+#     return lambda x: a * x + b # 함수 자체를 반환한 것이 클로저라고 함. - 지역 변수와 코드를 묶어서 사용하고 싶을 때
+
+# c = calc()
+# print(c(1), c(2), c(3), c(4))
+
+
+# def calc():
+#     a = 3
+#     b = 5
+#     total = 0
+#     def mul_add(x):
+#         nonlocal total # 지역변수가 아닌 전역변수를 참조하겠다는 의미
+#         total = total + x * a + b
+#         # print(total)
+#         return total
+#     return mul_add    
+
+# c = calc()
+# print(c(1))
+# print(c(2))
+# print(c(3))
+
+## 위의 코드에서 위와 같이 출력이 되는데, 그 이유는 calc()는 mul_add 함수를 반환하는데, mul_add 자체에는 반환하는 값이 없기 때문
+# 8
+# None
+# 19
+# None
+# 33
+# None
+
+# 클로저
+def counter():
+    i = 0  # 지역변수를 계속 기억하고 싶을 떄 쓰는 것.
+    def count():
+        nonlocal i
+        i += 1
+        return i
+    return count
+
+c = counter()
+
+for i in range(10):
+    print(c(), end=' ')
+print()
+
+
