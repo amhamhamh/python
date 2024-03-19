@@ -1175,26 +1175,180 @@
 #     print('잘못된 날짜 형식입니다.')
     
 
-class Time: # 생성자
-    def __init__(self, hour, minute, second):
-        self.hour = hour
-        self.minute = minute
-        self.second = second
+# class Time: # 클라스임. 
+#     def __init__(self, hour, minute, second):
+#         self.hour = hour
+#         self.minute = minute
+#         self.second = second
     
-    @staticmethod
-    def is_time_valid(time):  # 정적 메소드(함수 밖에서 인스턴스 없이 호출할 수 있음)
-        hour, min, sec = map(int, time.split(':'))
-        return hour <= 24 and min <= 59 and sec <= 60
+#     @staticmethod
+#     def is_time_valid(time):  # 정적 메소드(함수 밖에서 인스턴스 없이 호출할 수 있음)
+#         hour, min, sec = map(int, time.split(':'))
+#         return hour <= 24 and min <= 59 and sec <= 60
     
-    @classmethod
-    def from_string(cls, time): # 클래스 메소드(cls) - 현재 클래스가 들어옴.
-        hour, minute, second = map(str, time.split(':'))
-        return cls(hour, minute, second)  # Time 인스턴스를 반환
+#     @classmethod
+#     def from_string(cls, time): # 클래스 메소드(cls) - 현재 클래스가 들어옴.
+#         hour, minute, second = map(str, time.split(':'))
+#         return cls(hour, minute, second)  # Time 인스턴스를 반환
 
-time_string = input()
+# time_string = input()
 
-if Time.is_time_valid(time_string):
-    t = Time.from_string(time_string)
-    print(t.hour, t.minute, t.second)
-else:
-    print('잘못된 시간 형식입니다.')
+# if Time.is_time_valid(time_string):
+#     t = Time.from_string(time_string)
+#     print(t.hour, t.minute, t.second)
+# else:
+#     print('잘못된 시간 형식입니다.')
+
+
+## 36. 클래스 상속하기
+# class Person:
+#     def greeting(self):
+#         print('안녕하세요')
+    
+
+# 클래스 상속관계
+# class Student(Person): # Person클래스를 상속받은 Student 클래스
+#     def study(self):
+#         print('공부하기')
+
+# james = Student()
+# james.greeting() # 기반 클래스 Person에 메서드 호출
+# james.study() # 파생 클래스 Student에 추가한 study 메소드
+
+# 클래스 포함관계
+# class Person:
+#     def greeting(self):
+#         print('안녕하세요')
+
+# class PersonList:
+#     def __init__(self):
+#         self.person_list = []
+        
+#     def append_person(self, person):
+#         self.person_list.append(person)
+        
+
+# alice = Person()
+
+# alice1 = Person()
+# alice2 = Person()
+
+# people = PersonList()
+
+# # PersonList에 Person 인스턴스 추가
+# people.append_person(alice)
+# people.append_person(alice1)
+# people.append_person(alice2)
+
+# print(people.person_list) # Person을 인스턴스화한 alice, alice1, alice2가 담김
+
+# for person in people.person_list:
+#     person.greeting()
+
+# 부모 클라스
+# class Person:
+#     def __init__(self):
+#         print('Person __init__')
+#         self.hello = '안녕하세요.'
+        
+# # 자식 클라스(Person을 상속받은)
+# class Student(Person):
+#     def __init__(self):
+#         print('Student __init__')
+#         super().__init__() # super()로 부모 클라스(Person)의 __init__메서드를 호출
+#         self.school = '파이썬 코딩 도장'
+        
+# james = Student()
+# print(james.school)
+# print(james.hello)
+
+
+
+# 상속 받은 클라스에서 생성자 없이 사용하기 
+# class Person:
+#     def __init__(self):
+#         print('Person.__init__')
+#         self.hello = '안녕하세요'
+        
+
+# class Student(Person): # 부모 클라스를 상속 받은 자식 클라스에 생성자가 없을 경우. 그대로 부모 클라스를 이어 받음. 
+#     pass
+
+# james = Student()
+
+# print(james.hello)
+
+
+# 36.4 메서드 오버라이딩
+# class Person:
+#     def greeting(self):
+#         print('안녕하세요')
+
+# class Student(Person):
+#     def greeting(self): # 오버라이딩 - 부모클래스를 상속 받음에도 불구하고, 기존에 있는 메소드를 무시하고 써버림.
+#         # super().greeting() #부모 클라스의 메소드를 실행함. 
+#         print('저는 파이썬 코딩 도장 학생입니다.')
+        
+        
+# james = Student()
+# james.greeting()
+
+# 36.4 다중 상속하기 
+# class Person:
+#     def greeting(self):
+#         print('안녕하세요')
+        
+
+# class University:
+#     def manage_credit(self):
+#         print('학점 관리')
+        
+# class Undergraduate(Person, University): # Person클래스와 University클래스를 상속받음.
+#     def study(self):
+#         print('공부하기')
+        
+
+# james = Undergraduate() 
+# james.greeting() # Person클래스를 접근하여 메서드를 실행
+# james.manage_credit() # University클래스에 접근하여 메서드를 실행.
+# james.study() # Undergraduate 클래스를 받음. 
+
+# D.mro() - 메서드 탐색 순서
+
+# 36.6 추상클래스
+# from abc import * ## 추상클래스(abstract class)를 쓰기 위한 모듈
+
+# class StudentBase(metaclass=ABCMeta): # 추상 메서드 
+#     @abstractmethod # 추상 메소드의 접근 제어자 - 단순히 메소드 형태만 설정해 놓음
+#     def study(self):
+#         pass
+    
+#     @abstractmethod # 추상 메소드의 접근 제어자
+#     def go_to_school(self):
+#         pass
+    
+
+# class Student(StudentBase): # 추상 메소드는 무조건 상속받아서 사용해야 함. 
+#     def study(self):
+#         print('공부하기')
+    
+#     def go_to_school(self):
+#         print('학교가기')
+
+# james = Student()
+# james.study()
+# james.go_to_school()
+
+
+
+class AdvancedList(list):
+    def replace(self, old, new):
+        while old in self: # self에서 old가 있을 때까지
+            self[self.index(old)] = new # self[self.index(old)] - self 안에서[self.index(old)] - old에 해당하는 인덱스를 찾아서 그 값을 new 로 바꿔줌
+
+
+x = AdvancedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
+x.replace(1, 100)
+print(x)
+
+
