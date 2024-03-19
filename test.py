@@ -903,11 +903,11 @@
 #         x = 20        # A의 지역 변수 x에 20 할당 -  
 #     B()
 #     print(x)      # A의 지역 변수 x 출력
- 
+
 # A()
 
 # lambda로 클로저 만들기
-# def calc():
+# def calc(x):
 #     a = 3
 #     b = 5
 #     return lambda x: a * x + b # 함수 자체를 반환한 것이 클로저라고 함. - 지역 변수와 코드를 묶어서 사용하고 싶을 때
@@ -940,19 +940,112 @@
 # 33
 # None
 
-# 클로저
-def counter():
-    i = 0  # 지역변수를 계속 기억하고 싶을 떄 쓰는 것.
-    def count():
-        nonlocal i
-        i += 1
-        return i
-    return count
+# # 클로저
+# def counter():
+#     i = 0  # 지역변수를 계속 기억하고 싶을 떄 쓰는 것.
+#     def count():
+#         nonlocal i
+#         i += 1
+#         return i
+#     return count
 
-c = counter()
+# c = counter()
 
-for i in range(10):
-    print(c(), end=' ')
-print()
+# for i in range(10):
+#     print(c(), end=' ') # 함수를 반환한 것을 10번 찍음
+# print()
 
 
+# class Person:
+#     def greeting(self):
+#         print('Hello')
+        
+
+# james = Person() # 인스턴스화 
+# james.greeting()
+
+# c = {'x': 100, 'y': 120}
+# print(type(c))
+# print(type(james))
+
+# class Person:
+#     def greeting(self): # 첫번째 변수는 무조건 self로 짓음. 
+#         print('Hello')
+        
+#     def hello(self): # self를 써야만, 클래스 내에 있는 함수를 호출한다는 의미. 클래스 내에 메소드를 참조한다는 의미
+#         self.greeting()
+
+# james = Person()
+# james.hello()
+
+# class Person:
+#     pass
+
+# james = Person()
+
+# print(isinstance(james, Person))
+
+
+# def factorial(n):
+#     if not isinstance(n, int) or n < 0:
+#         return None
+#     if n == 1:
+#         return 1
+#     return n * factorial(n-1) # 재귀함수
+
+# print(factorial(5))
+
+# class Person:
+#     def __init__(self, name, age, address): # 생성자
+#         self.hello = '안녕하세요'
+#         self.name = name
+#         self.age = age
+#         self.address = address 
+    
+#     def greeting(self): # 메서드
+#         print(f'{self.hello} 저의 이름은 {self.name} 이며, 나이는 {self.age}, 사는 곳은 {self.address} ')
+
+# james = Person('마리아', 30, '서울시 중랑구 면목동')
+# james.greeting()
+
+
+# class Person:
+#     def __init__(self, *arg):
+#         self.name = arg[0]
+#         self.age = arg[1]
+#         self.address = arg[2]
+    
+# james = Person(*['마리아', 30, '서울시 중랑구 면목동']) # *를 붙여야 함. 
+
+# print(james.address)
+
+# class Person:
+#     def __init__(self, **kwargs): ## 쌍 에스터리스트 dict 형태를 없애는 것
+#         self.name = kwargs['name']
+#         self.age = kwargs['age']
+#         self.address = kwargs['address']
+
+# # james = Person(name='james', age=15, address='england') 
+# maria = Person(**{'name':'maria', 'age':15, 'address':'포항시'}) 
+
+# print(maria.name)
+
+# class Person:
+#     def greeting(self):
+#         self.hello = '안녕하세요'
+
+# # maria = Person()
+# # print(maria.hello)
+
+# maria = Person()
+# maria.greeting() # 해당 인스턴스의 메소드 실행후
+# print(maria.hello)
+
+class Person:
+    __slot__ = ['name', 'age']
+
+maria = Person()
+maria.name = '마리아'
+maria.age = 20
+maria.address = '서울시 서초구 반포동'
+print(maria.address)
