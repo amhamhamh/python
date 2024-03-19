@@ -1152,7 +1152,7 @@
 #         print(f'인스턴스가 {cls.count}번 생성되었습니다.')
         
 #     @classmethod
-#     def create(cls):
+#     def create(cls): # 현재 클래스가 들어옴.
 #         p = cls()
 #         return p
             
@@ -1189,7 +1189,7 @@ class Time: # 생성자
     @classmethod
     def from_string(cls, time): # 클래스 메소드(cls) - 현재 클래스가 들어옴.
         hour, minute, second = map(str, time.split(':'))
-        return cls(hour, minute, second)
+        return cls(hour, minute, second)  # Time 인스턴스를 반환
 
 time_string = input()
 
