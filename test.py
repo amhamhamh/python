@@ -1041,11 +1041,160 @@
 # maria.greeting() # 해당 인스턴스의 메소드 실행후
 # print(maria.hello)
 
-class Person:
-    __slot__ = ['name', 'age']
+# class Person:
+#     def __init__(self, name, age, address, wallet):
+#         self.name = name
+#         self.age = age
+#         self.address = address
+#         self.__wallet = wallet # 변수 앞에 __를 붙여서 클래스 내에서만 접속가능
+        
 
-maria = Person()
-maria.name = '마리아'
-maria.age = 20
-maria.address = '서울시 서초구 반포동'
-print(maria.address)
+#     def pay(self, amount):
+#         if amount > self.__wallet:
+#             print('돈이 모자라요')
+#             return
+#         self.__wallet -= amount
+#         print(f'지갑에 {self.__wallet}원 남았네요')
+
+# james = Person('마리아', 20, '서울시 서초구 반포동', 10000)
+# james.pay(3000)
+# james.pay(13000)
+
+# class Person:
+#     def __greeting(self): ## 비공개 메소드 
+#         print('hello')
+    
+#     def hello(self):
+#         self.__greeting() # 클래스 안에서는 __를 붙여서 비공개 메서드를 호출할 수 있음
+
+# james = Person()
+# james.__greeting()
+
+
+# class Knight:
+#     def __init__(self, health, mana, armor):
+#         self.health = health
+#         self.mana = mana
+#         self.armor = armor
+    
+#     def slash(self):
+#         print('베기')
+        
+# x = Knight(health=542.4, mana=210.3, armor=38)
+# print(x.health, x.mana, x.armor)
+# x.slash()
+
+
+# class Annie:
+#     def __init__(self, health, mana, ability_power):
+#         self.health = health
+#         self.mana = mana
+#         self.ability_power = ability_power
+    
+#     def tibbers(self):
+#         print(f'티버: 피해량 {self.ability_power * 0.65 + 400} ')
+        
+# health, mana, ability_power = map(float, input().split())
+
+# x = Annie(health=health, mana=mana, ability_power=ability_power)
+# x.tibbers()
+
+# class Person:
+#     '''사람 클래스입니다.'''
+#     def greeting(self):
+#         '''인사 메서드입니다.'''
+#         print('hello')
+
+
+# maria = Person()
+# print(Person.__doc__)
+# print(Person.greeting.__doc__)
+
+# print(maria.greeting.__doc__)
+
+
+## 정적 메소드는 인스턴스 생성 없이, 바로 클래스에 접근할 수 있는 메서드를 얘기함.
+# class Calc:
+#     @staticmethod
+#     def add(a, b):
+#         print(a + b)
+    
+#     @staticmethod
+#     def mul(a, b):
+#         print(a * b)
+
+# Calc.add(3, 4)
+# Calc.mul(3, 4)
+
+
+# 정적 메소드는 인스턴스의 상태를 변화시키지 않음. 인스턴스 메소드는 정적 메소드를 변화시킴
+
+## 인스턴스 메소드(자료형 set을 변수 a를 변화시킴)
+# a = {1, 2, 3, 4, 5}
+# a.update({5})
+# print(a)
+
+## 정적 메소드(자료형을 변화시키지 않음)
+# set.union({1, 2, 3, 4}, {5})
+# print(set.union({1, 2, 3, 4}, {5}))
+
+
+# 클래스 메소드. - 정적 메소드와 같이 인스턴스 없이 호출할 수 있다는 점은 같음
+# cls를 사용하면, 메소드 안에서 현재 클래스의 인스턴스를 생성할 수 있음. 
+# class Person:
+#     count = 0
+    
+#     def __init__(self):
+#         Person.count += 1
+        
+#     @classmethod
+#     def print_count(cls): 
+#         print(f'인스턴스가 {cls.count}번 생성되었습니다.')
+        
+#     @classmethod
+#     def create(cls):
+#         p = cls()
+#         return p
+            
+# james = Person()
+# maria = Person()
+
+# Person.print_count()
+# print(Person.create())
+
+# class Date:
+    
+#     @staticmethod
+#     def is_date_valid(date):
+#         year, month, day = map(int, date.split('-'))
+#         return month <= 12 and day <= 31
+
+# if Date.is_date_valid('2000-10-35'):
+#     print('올바른 날짜 형식입니다.')
+# else:
+#     print('잘못된 날짜 형식입니다.')
+    
+
+class Time: # 생성자
+    def __init__(self, hour, minute, second):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+    
+    @staticmethod
+    def is_time_valid(time):  # 정적 메소드(함수 밖에서 인스턴스 없이 호출할 수 있음)
+        hour, min, sec = map(int, time.split(':'))
+        return hour <= 24 and min <= 59 and sec <= 60
+    
+    @classmethod
+    def from_string(cls, time): # 클래스 메소드(cls) - 현재 클래스가 들어옴.
+        hour, minute, second = map(str, time.split(':'))
+        return cls(hour, minute, second)
+
+time_string = input()
+
+if Time.is_time_valid(time_string):
+    t = Time.from_string(time_string)
+    print(t.hour, t.minute, t.second)
+else:
+    print('잘못된 시간 형식입니다.')
