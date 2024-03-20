@@ -1113,6 +1113,8 @@
 # print(maria.greeting.__doc__)
 
 
+# 정적 메소드와 클래스 메소드는 인스턴스 상관없이 바로 접근할 수 있는 메소드 
+
 ## 정적 메소드는 인스턴스 생성 없이, 바로 클래스에 접근할 수 있는 메서드를 얘기함.
 # class Calc:
 #     @staticmethod
@@ -1148,7 +1150,7 @@
 #         Person.count += 1
         
 #     @classmethod
-#     def print_count(cls): 
+#     def print_count(cls): # 호출을 하기 위해서 만든 것. 
 #         print(f'인스턴스가 {cls.count}번 생성되었습니다.')
         
 #     @classmethod
@@ -1341,14 +1343,32 @@
 
 
 
-class AdvancedList(list):
-    def replace(self, old, new):
-        while old in self: # self에서 old가 있을 때까지
-            self[self.index(old)] = new # self[self.index(old)] - self 안에서[self.index(old)] - old에 해당하는 인덱스를 찾아서 그 값을 new 로 바꿔줌
+# class AdvancedList(list):
+#     def replace(self, old, new):
+#         while old in self: # self에서 old가 있을 때까지
+#             self[self.index(old)] = new # self[self.index(old)] - self 안에서[self.index(old)] - old에 해당하는 인덱스를 찾아서 그 값을 new 로 바꿔줌
 
 
-x = AdvancedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
-x.replace(1, 100)
-print(x)
+# x = AdvancedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
+# x.replace(1, 100)
+# print(x)
 
+# 클래스 연습문제
+class Animal:
+    def eat(self):
+        print('먹다')
+        
+class Wing:
+    def flap(self):
+        print('파닥거리다')
+        
+class Bird(Animal, Wing):
+    def fly(self):
+        print('날다')    
 
+b = Bird()
+b.eat()
+b.flap()
+b.fly()
+print(issubclass(Bird, Animal))
+print(issubclass(Bird, Wing))
