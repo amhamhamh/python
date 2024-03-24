@@ -327,3 +327,86 @@ import random
 # 제네레이터 표현식
 #(식 for i in 반복가능한객체)
 #(i for i in 100)
+
+
+# 데코리에터 @ - 함수를 장식하는 거
+# def trace(func):
+#     def wrapper():  # 호출할 함수를 감싸는 함수
+#         print(func.__name__, '함수 시작')
+#         func()
+#         print(func.__name__, '함수 끝')
+#     return wrapper # 함수를 반환하는 클로저
+
+# @ trace # 함수를 수정하지 않은 상태에서 추가 기능.
+# def hello():
+#     print('hello')
+
+# @ trace # 함수를 수정하지 않은 상태에서 추가 기능.
+# def world():
+#     print('world')
+
+# # trace_hello = trace(hello)
+# # trace_hello()
+# # trace_world = trace(world)
+# # trace_world()
+    
+# hello()
+# world()
+
+# 데코레이터
+# def decorator1(func):
+#     def wrapper():
+#         print('decorator1')
+#         func()
+#     return wrapper
+
+# def decorator2(func):
+#     def wrapper():
+#         print('decorator2')
+#         func()
+#     return wrapper
+
+# # 데코레이터를 적용을 했을 때
+# # @ decorator1 
+# # @ decorator2
+# def hello():
+#     print('hello')
+
+# # hello()
+
+# decoratored_hello = decorator1(decorator2(hello))
+# decoratored_hello()
+
+
+# 매개변수가 있는 함수 데코레이터
+# def trace(func):
+#     def wrapper(a, b):
+#         r = func(a, b)
+#         print(f'{func.__name__} a: {a} b: {b} r:{r}')
+#         return r
+#     return wrapper
+# @trace
+# def add(a, b):
+#     return a+b
+
+# print(add(10 ,20))
+
+
+# 단 애스터리스크와 쌍 애스터리크로 매개변수를 여러개를 받음. 
+def trace(func):
+    def wrapper(*args, **kwargs):
+        r = func(*args, **kwargs)
+        print(f'{func.__name__} arg -{args}, kwargs - {kwargs} r:{r}')
+        return r
+    return wrapper
+
+@trace
+def get_max(*args):
+    return max(args)
+
+@trace                   
+def get_min(**kwargs):   
+    return min(kwargs.values())
+
+print(get_max(10 ,20))
+print(get_min(x=10 ,y=20, z=30))
