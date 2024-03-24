@@ -393,20 +393,42 @@ import random
 
 
 # 단 애스터리스크와 쌍 애스터리크로 매개변수를 여러개를 받음. 
-def trace(func):
-    def wrapper(*args, **kwargs):
-        r = func(*args, **kwargs)
-        print(f'{func.__name__} arg -{args}, kwargs - {kwargs} r:{r}')
-        return r
-    return wrapper
+# def trace(func):
+#     def wrapper(*args, **kwargs):
+#         r = func(*args, **kwargs)
+#         print(f'{func.__name__} arg -{args}, kwargs - {kwargs} r:{r}')
+#         return r
+#     return wrapper
 
-@trace
-def get_max(*args):
-    return max(args)
+# @trace
+# def get_max(*args):
+#     return max(args)
 
-@trace                   
-def get_min(**kwargs):   
-    return min(kwargs.values())
+# @trace                   
+# def get_min(**kwargs):   
+#     return min(kwargs.values())
 
-print(get_max(10 ,20))
-print(get_min(x=10 ,y=20, z=30))
+# print(get_max(10 ,20))
+# print(get_min(x=10 ,y=20, z=30))
+
+
+# def trace(func):
+#     def wrapper(self, a, b): # 호출할 함수가 인스턴스 메서드이므로 첫번째 메소드는 무조건 self로 지정
+#         r = func(self, a, b) # self와 매개변수를 그대로 넣어줌.
+#         print(f'{func.__name__} a:{a}, b:{b}, r:{r}') # 매개변수와 변환값 출력
+#         return r
+#     return wrapper
+
+# class Calc:
+#     @trace
+#     def add(self, a, b): # add는 인스턴스 메서드
+#         return a + b
+
+# c = Calc()
+# print(c.add(10, 20))
+
+
+# def is_mutiplet(x):
+#     def real_decortor(func):
+#         def wrapper(a, b):
+        
