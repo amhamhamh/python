@@ -395,16 +395,16 @@ import random
 # 단 애스터리스크와 쌍 애스터리크로 매개변수를 여러개를 받음. 
 # def trace(func):
 #     def wrapper(*args, **kwargs):
-#         r = func(*args, **kwargs)
+#         r = func(*args, **kwargs) # 매개변수 안쪽으로 들어갈 때 
 #         print(f'{func.__name__} arg -{args}, kwargs - {kwargs} r:{r}')
 #         return r
 #     return wrapper
 
-# @trace
+# @trace # 상위 데코레이터
 # def get_max(*args):
 #     return max(args)
 
-# @trace                   
+# @trace # 상위 데코레이터                   
 # def get_min(**kwargs):   
 #     return min(kwargs.values())
 
@@ -428,7 +428,89 @@ import random
 # print(c.add(10, 20))
 
 
-# def is_mutiplet(x):
-#     def real_decortor(func):
-#         def wrapper(a, b):
+# 매개변수가 있는 데이코레이터
+# def is_mutiplet(x): # 데코레이터가 사용할 매개변수를 지정
+#     def real_decortor(func): # 호출할 함수를 매개변수로 받음
+#         def wrapper(a, b): # 호출할 함수의 매개변수와 똑같이 지정
+#             r = func(a, b) # func를 호출하고 반환값을 변수에 저장
+#             if r % x == 0: # func의 반환값이 x의 배수인지 확인
+#                 print(f'{func.__name__}의 반환값은 {x}의 배수입니다.') 
+#             else:
+#                 print(f'{func.__name__}의 반환값은 {x}의 배수가 아닙니다.') 
+#             return r
+#         return wrapper
+#     return real_decortor
+
+# @is_mutiplet(3)
+# def add(a, b):
+#     return a+b
+
+# print(add(10 , 20))
+# print(add(2 , 5))
+
+
+
+# @is_mutiplet(3)  
+# @is_mutiplet(7)  
+# def add(a, b): 
+#     return a+b
+
+
+# decorated_add  = is_mutiplet(3)(is_mutiplet(7)(add))
+# decorated_add(10, 20)
+
+
+# class Trace: # 데코레이터  - 함수를 상속 받을 때 사용 @staticmethod  - 해당 메소드를 사용할 떄 이렇게 사용
+#     def __init__(self, func):
+#         self.func = func
         
+#     def __call__(self): # 클래스를 활용할 때 인스턴스를 함수처럼 호출하려면 __call__ 메서드를 호출해야 함. 
+#         print(f'{self.func.__name__} , 함수시작')
+#         self.func()
+#         print(f'{self.func.__name__} , 함수끝')
+        
+# @Trace
+# def hello():
+#     print('hello')
+
+# hello()
+
+
+# Trace- 클래스로 매개변수가 있는 데코레이터
+# class Trace:
+#     def __init__(self, func):
+#         self.func = func
+        
+#     def __call__(self, *args, **kwds):
+#         r = self.func(*args, **kwds)
+#         print(f'{self.func.__name__} *args: {args}, **kwds: {kwds}')
+#         return r
+
+# @Trace
+# def add(a, b):
+#     return a + b
+
+# print(add(10, 20))
+# print(add(a=30, b=40))
+
+# 데코레이터
+class IsMutilple:
+    def __init__(self, x):
+        self.x = x
+    
+    def __call__(self, func):
+        def wrapper(a, b):
+            r = func(a, b)
+            if r % self.x == 0:
+                print(f'{func.__name__}의 반환값은 {self.x}의 배수입니다.')
+            else: 
+                print(f'{func.__name__}의 반환값은 {self.x}의 배수가 아닙니다.')
+            return r
+        return wrapper
+                
+@IsMutilple(3)
+def add(a, b):
+    return a+b
+
+print(add(10 ,20))
+print(add(2 ,5))
