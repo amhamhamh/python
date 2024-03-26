@@ -494,23 +494,58 @@ import random
 # print(add(a=30, b=40))
 
 # 데코레이터
-class IsMutilple:
-    def __init__(self, x):
-        self.x = x
+# class IsMutilple:
+#     def __init__(self, x):
+#         self.x = x
     
-    def __call__(self, func):
-        def wrapper(a, b):
-            r = func(a, b)
-            if r % self.x == 0:
-                print(f'{func.__name__}의 반환값은 {self.x}의 배수입니다.')
-            else: 
-                print(f'{func.__name__}의 반환값은 {self.x}의 배수가 아닙니다.')
-            return r
-        return wrapper
+#     def __call__(self, func): #클로저
+#         def wrapper(a, b):
+#             r = func(a, b)
+#             if r % self.x == 0:
+#                 print(f'{func.__name__}의 반환값은 {self.x}의 배수입니다.')
+#             else: 
+#                 print(f'{func.__name__}의 반환값은 {self.x}의 배수가 아닙니다.')
+#             return r
+#         return wrapper
                 
-@IsMutilple(3)
-def add(a, b):
-    return a+b
+# @IsMutilple(3)
+# def add(a, b):
+#     return a+b
 
-print(add(10 ,20))
-print(add(2 ,5))
+# print(add(10 ,20))
+# print(add(2 ,5))
+
+
+import re # 정규표현식 라이브러리
+
+# re.match('표현식') - 문자열 처음부터 매칭되는지 판단
+# re.serach('표현식') - 문자열 일부분이 판단되는지 판단.
+# print(re.search('Hello|Clean', 'Hello, world!'))
+# print(re.match('^Hello', 'Hello, world!'))
+
+
+# 정규표현식
+# *  - 0개 또는 여러개가 있는지..
+# $ - 해당 문자로 끝나는지.
+# . - 문자열 하나 
+# ^ - 해당 문자로 시작하는지... [^ ]- 범위 안에 들어오면, 해당 문자열을 제외한 것.
+# + - 1개 이상 있는지
+# ? - 0 또는 1개가 있는지
+## 소문- ~인 것. 대문자- 아닌 것
+# \d - [0-9]와 같음. 숫자인 것 
+# \D - [^0-9]와 같음. 숫자를 제외한 것
+# \w - [a-zA-Z0-9_]와 같음. 영문 대소문자, 숫자, 밑줄 문자
+# \W - [a-zA-Z0-9_]와 같음. 영문 대소문자, 숫자, 밑줄 문자를 제외한 것
+# \s - 공백 스페이스
+# \S - 공백 아닌 것
+# \t - 탭
+# \n(새 줄, 라인 피드)
+# \r 캐리지 리턴
+# \f - 폼피드
+# \v - 수직 탭
+# 문자{개수} - 해당 문자{}
+# [ ]  - 해당 구간 내에 존재하는 게 있는지
+# [ ]{개수, 개수} - 해당 구간 내에서 몇 개를 존재하는지
+# [0-9]* - 0~9 사이에 0개 또는 여러 개가 있는지
+
+
